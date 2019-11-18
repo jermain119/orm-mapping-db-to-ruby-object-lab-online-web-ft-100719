@@ -38,7 +38,7 @@ class Student
       self.new_from_db(row)
     end.first
   end
-
+# save method 
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
@@ -59,13 +59,13 @@ class Student
 
     DB[:conn].execute(sql)
   end
-
+#drop table 
   def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
 
     DB[:conn].execute(sql)
   end
-
+#sql query method 
   def self.students_below_12th_grade
     sql = <<-SQL
       SELECT *
@@ -77,7 +77,7 @@ class Student
       self.new_from_db(row)
     end
   end
-
+#sql query method 
   def self.all_students_in_grade_9
     sql = <<-SQL
       SELECT COUNT(*)
@@ -89,7 +89,7 @@ class Student
       self.new_from_db(row)
     end
   end
-
+#sql query method 
   def self.first_X_students_in_grade_10(number)
     sql = <<-SQL
       SELECT *
@@ -116,7 +116,7 @@ class Student
       self.new_from_db(row)
     end.first
   end
-
+#\
   def self.all_students_in_grade_X(grade)
     sql = <<-SQL
       SELECT *
